@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/frontend/Home";
-import About from "./components/frontend/About";
+import { About } from "./components/frontend/About";
+import Home from "./components/frontend/home";
 import "bootstrap/dist/css/bootstrap.min.css"; // Nhập Bootstrap CSS
 import "./assets/css/style.scss";
 

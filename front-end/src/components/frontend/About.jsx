@@ -1,8 +1,13 @@
 // rafce
 import React from "react";
-
-const About = () => {
-  return <div>About</div>;
+import Footer from "../common/Footer";
+import Header from "../common/Header";
+export const About = () => {
+  return (
+    <div>
+      <Header />
+      <main></main>
+      <Footer />
+    </div>
+  );
 };
-
-export default About;
