@@ -1,8 +1,9 @@
 // rafce
 import React from "react";
-import AboutImg from "../../assets/images/about-us.jpg";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
+import About from "../common/About";
+
 // Img
 import ServiceImg from "../../assets/images/construction1.jpg";
 import ConstrutionImg from "../../assets/images/construction2.jpg";
@@ -48,32 +49,7 @@ const Home = () => {
         </section>
 
         {/* About us Section */}
-        <section className="section-2 py-5">
-          <div className="container py-5">
-            <div className="row">
-              <div className="col-md-6">
-                <img src={AboutImg} className="w-100" alt="" />
-              </div>
-
-              <div className="col-md-6">
-                <span>about us</span>
-                <h2>Crafting structures the last a lifetime</h2>
-                <p>
-                  Building enduring structures requires a comprehensive approach
-                  that combines advanced materials, resilent design, routine
-                  maintence, and sustainable practice. By drawing on historical
-                  insights and utilizinig modern technogy.
-                </p>
-                <p>
-                  Designing structures that stand the test of time involves a
-                  seamless blend of cutting-edge materials, durable design,
-                  ongoing upkeep, and eco-friendly practices. By combining
-                  lessons from the past with the power of modern technology.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <About />
 
         {/* Our Services */}
         <section className="section-3 bg-light">
@@ -611,7 +587,7 @@ const Home = () => {
                 residental, commercial, and industrial projects.
               </p>
             </div>
-            <div className="row">
+            <div className="row pt-3">
               <div className="col-md-4">
                 <div className="card shadow border-0">
                   <div className="card-img-top">

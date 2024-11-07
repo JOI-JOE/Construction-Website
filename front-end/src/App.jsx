@@ -3,6 +3,7 @@ import { About } from "./components/frontend/About";
 import Home from "./components/frontend/home";
 import "bootstrap/dist/css/bootstrap.min.css"; // Nhập Bootstrap CSS
 import "./assets/css/style.scss";
+import Services from "./components/frontend/Services";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/services" element={<Services />}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -4,7 +4,7 @@ $secondary-color: #ffb703;
 $text-color: #000;
 $text-white: #ffffff;
 $dark-background: #222725;
-$light-background: #222725;
+$light-background: #9a9b9b;
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
@@ -159,7 +159,7 @@ footer {
   .item {
     position: relative;
     overflow: hidden;
-    margin-bottom: 2;
+    margin-bottom: 20px;
     &:hover {
       .service-body {
         transform: translateY(0%);
@@ -260,6 +260,42 @@ footer {
     .card-body {
       a.title {
         font-size: 1.4em;
+      }
+    }
+  }
+}
+
+.section-7 {
+  .hero {
+    background-image: url("../images/hero.jpg");
+    min-height: 800px;
+    color: $text-white;
+    span {
+      color: $secondary-color;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.section-8 {
+  .card {
+    border-radius: 40px;
+    img {
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    .card-body {
+      a.title {
+        font-size: 1.4em;
+      }
+      .card-title {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+      .card-sub-title {
+        font-size: 1.3em;
+        color: $light-background;
       }
     }
   }
