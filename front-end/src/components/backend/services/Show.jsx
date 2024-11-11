@@ -70,12 +70,18 @@ const Show = () => {
                                 {service.status == 1 ? "Actice" : "Block"}
                               </td>
                               <td>
-                                <a href="" className="btn btn-primary btn-sm">
+                                <Link
+                                  to={`/admin/services/edit/${service.id}`}
+                                  className="btn btn-primary btn-sm"
+                                >
                                   Edit
-                                </a>
-                                <a href="" className="btn btn-secondary btn-sm">
+                                </Link>
+                                {/* <Link
+                                  to={`/admin/service/edit/${service.id}`}
+                                  className="btn btn-secondary btn-sm"
+                                >
                                   Delete
-                                </a>
+                                </Link> */}
                               </td>
                             </tr>
                           );

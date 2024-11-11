@@ -7,6 +7,7 @@ import Login from "./components/backend/Login";
 import RequireAuth from "./components/common/RequireAuth";
 import { default as ShowServices } from "./components/backend/services/Show";
 import { default as CreateServices } from "./components/backend/services/Create";
+import { default as EditServices } from "./components/backend/services/Edit";
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Nhập Bootstrap CSS
 import "./assets/css/style.scss";
@@ -48,6 +49,14 @@ function App() {
             element={
               <RequireAuth>
                 <CreateServices />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/admin/services/edit/:id"
+            element={
+              <RequireAuth>
+                <EditServices />
               </RequireAuth>
             }
           />
