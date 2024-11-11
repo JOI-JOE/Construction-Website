@@ -5,6 +5,8 @@ import Dashboard from "./components/backend/Dashboard";
 import Services from "./components/frontend/Services";
 import Login from "./components/backend/Login";
 import RequireAuth from "./components/common/RequireAuth";
+import { default as ShowServices } from "./components/backend/services/Show";
+import { default as CreateServices } from "./components/backend/services/Create";
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Nhập Bootstrap CSS
 import "./assets/css/style.scss";
@@ -30,7 +32,25 @@ function App() {
                 <Dashboard />
               </RequireAuth>
             }
-          ></Route>
+          />
+
+          <Route
+            path="/admin/services"
+            element={
+              <RequireAuth>
+                <ShowServices />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="/admin/services/create"
+            element={
+              <RequireAuth>
+                <CreateServices />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer position="top-center" />

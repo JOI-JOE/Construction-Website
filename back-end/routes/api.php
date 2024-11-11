@@ -20,8 +20,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('logout', [AuthenticationController::class, 'logout']);
 
     // Service Routes 
-    Route::post('services', [ServiceController::class, 'store']);
-    Route::get('services', [ServiceController::class, 'index']);
+    // Route::post('services', [ServiceController::class, 'store']);
+    // Route::get('services', [ServiceController::class, 'index']);
+    // Route::put('services/{id}', [ServiceController::class, 'update']);
+    Route::resource('services', ServiceController::class);
 
     // Temp-Image
     Route::post('temp-images', [TempImageController::class, 'store']);

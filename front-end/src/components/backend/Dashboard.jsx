@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../common/Header";
 import Footer from "../common/Footer";
 import Sidebar from "../common/Sidebar";
+import Header from "../common/Header";
 
 const Dashboard = () => {
   return (
@@ -17,7 +17,7 @@ const Dashboard = () => {
             <div className="col-md-9 dashboard">
               {/* Dashboard */}
               <div className="card shadow border-0">
-                <div className="card-body d-flex justify-content-center">
+                <div className="card-body d-flex justify-content-center align-items-center">
                   <h4>Welcome to admin console</h4>
                 </div>
               </div>
