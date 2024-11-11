@@ -52,31 +52,6 @@ const Edit = ({ placeholder }) => {
     },
   });
 
-  const navigate = useNavigate();
-
-  const onSubmit = async (data) => {
-    const newData = { ...data, content: content, imageId: imageId };
-    const res = await fetch(aipUrl + "services/" + params.id, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${token()}`,
-      },
-      body: JSON.stringify(newData),
-    });
-
-    const result = await res.json();
-    console.log(result);
-
-    if (result.status == true) {
-      toast.success(result.message);
-      navigate("/admin/services");
-    } else {
-      toast.error(result.message);
-    }
-  };
-
   const handleFile = async (e) => {
     const formData = new FormData();
     const file = e.target.files[0];
@@ -98,6 +73,30 @@ const Edit = ({ placeholder }) => {
           setImageId(result.data.id);
         }
       });
+  };
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const newData = { ...data, content: content, imageId: imageId };
+    const res = await fetch(aipUrl + "services/" + params.id, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token()}`,
+      },
+      body: JSON.stringify(newData),
+    });
+
+    const result = await res.json();
+
+    if (result.status == true) {
+      toast.success(result.message);
+      navigate("/admin/services");
+    } else {
+      toast.error(result.message);
+    }
   };
 
   return (

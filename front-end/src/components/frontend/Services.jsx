@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
-import { default as AboutNew } from "../common/About";
 import { Hero } from "../common/Hero";
 import ServiceImg from "../../assets/images/construction1.jpg";
+import { aipUrl, fileUrl } from "../common/http";
 
 const Services = () => {
+  const [services, SetServices] = useState([]);
+  const fetchAllServices = async () => {
+    const res = await fetch(aipUrl + "get-services", {
+      method: "GET",
+    });
+    const result = await res.json();
+    console.log(result);
+    SetServices(result.data);
+  };
+
+  useEffect(() => {
+    fetchAllServices();
+  }, []);
   return (
     <>
       <Header />
@@ -27,95 +40,36 @@ const Services = () => {
               </p>
             </div>
             <div className="row pt-4">
-              <div className="col-md-4 col-lg-4">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={ServiceImg} alt="" className="w-100" />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Speicalty Construction</h3>
+              {services &&
+                services.map((service) => {
+                  return (
+                    <div className="col-md-4 col-lg-4">
+                      <div className="item">
+                        <div className="service-image">
+                          <img
+                            src={
+                              `${fileUrl}uploads/services/small/` +
+                              service.image
+                            }
+                            alt=""
+                            className="w-100"
+                          />
+                        </div>
+                        <div className="service-body">
+                          <div className="service-title">
+                            <h3>{service.title}</h3>
+                          </div>
+                          <div className="service-content">
+                            <p>{service.short_desc}</p>
+                          </div>
+                          <a href="#" className="btn btn-primary small">
+                            read more
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    <div className="service-content">
-                      <p>
-                        Specialty construction is a niche sector within the
-                        contruction industry that forcuses on project requiring
-                        specialed skills, materials, and techniques.
-                      </p>
-                    </div>
-                    <a href="#" className="btn btn-primary small">
-                      read more
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 col-lg-4">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={ServiceImg} alt="" className="w-100" />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Speicalty Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>
-                        Specialty construction is a niche sector within the
-                        contruction industry that forcuses on project requiring
-                        specialed skills, materials, and techniques.
-                      </p>
-                    </div>
-                    <a href="#" className="btn btn-primary small">
-                      read more
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 col-lg-4">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={ServiceImg} alt="" className="w-100" />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Speicalty Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>
-                        Specialty construction is a niche sector within the
-                        contruction industry that forcuses on project requiring
-                        specialed skills, materials, and techniques.
-                      </p>
-                    </div>
-                    <a href="#" className="btn btn-primary small">
-                      read more
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-md-4 col-lg-4">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={ServiceImg} alt="" className="w-100" />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Speicalty Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>
-                        Specialty construction is a niche sector within the
-                        contruction industry that forcuses on project requiring
-                        specialed skills, materials, and techniques.
-                      </p>
-                    </div>
-                    <a href="#" className="btn btn-primary small">
-                      read more
-                    </a>
-                  </div>
-                </div>
-              </div>
+                  );
+                })}
             </div>
           </div>
         </section>

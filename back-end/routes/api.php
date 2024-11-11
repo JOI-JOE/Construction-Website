@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,16 +14,14 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 Route::post('authenticate', [AuthenticationController::class, 'authenticate']);
+Route::get('get-services', action: [FrontServiceController::class, 'index']);
+Route::get('get-latest-services', [FrontServiceController::class, 'lastestServices']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Protected Routes
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::get('logout', [AuthenticationController::class, 'logout']);
 
-    // Service Routes 
-    // Route::post('services', [ServiceController::class, 'store']);
-    // Route::get('services', [ServiceController::class, 'index']);
-    // Route::put('services/{id}', [ServiceController::class, 'update']);
     Route::resource('services', ServiceController::class);
 
     // Temp-Image
