@@ -20,6 +20,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::orderBy('created_at', 'DESC')->get();
+
         return response()->json([
             'status'     => true,
             'data'    => $services
@@ -36,6 +37,8 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge(input: ['slug' => Str::slug($request->slug)]);
+
         $validator = Validator::make($request->all(), [
             'title'     => 'required',
             'slug'      => 'required|unique:services,slug',
@@ -125,6 +128,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         // $service = Service::find($id);
+        $request->merge(input: ['slug' => Str::slug($request->slug)]);
 
         if ($service == null) {
             return response()->json([

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\AuthenticationController;
@@ -22,7 +23,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::get('logout', [AuthenticationController::class, 'logout']);
 
+    // Route service
     Route::resource('services', ServiceController::class);
+
+    // Route Project
+    Route::resource('projects', ProjectController::class);
 
     // Temp-Image
     Route::post('temp-images', [TempImageController::class, 'store']);
